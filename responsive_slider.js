@@ -7,6 +7,7 @@
  
 (function($) {
 	$.fn.animat = function() {
+		img();
 		var ts = this;
 		var att;
 		this.find(".carousel-caption").children().each(function() {
@@ -30,4 +31,19 @@
 		});
 		return this;
 	};
+	function img(){
+		$(".item img").css({
+			"visibility": "hidden",
+			"display": "none"
+		});
+		var length = $(".item").length;
+		var i = 0;
+		$(".item img").each(function(i) {
+			var imag = $(this).attr('src');
+			$("#image_" + (i+1)).css({"background-image": "url(" + imag + ")",
+										"height": 500,
+										"background-size": "cover"
+									});
+		});i++;
+	}
 })(jQuery);
